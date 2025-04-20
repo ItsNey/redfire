@@ -12,18 +12,24 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f0f0; /* Light gray background for contrast */
         }
         .widget {
             text-align: center;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Scalable width */
+            max-width: 400px; /* Maximum width */
+            min-width: 250px; /* Minimum width */
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
         }
         select {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-top: 10px;
+            width: 100%;
         }
         label {
             font-weight: normal;
@@ -69,7 +75,7 @@
                     evening: '#9370DB'     // Deep Violet
                 }
             };
-            return colorMap[energyMode][timePeriod] || '#ffffff';
+            return colorMap[energyMode][timePeriod] || 'transparent';
         }
 
         function updateBackgroundColor() {
