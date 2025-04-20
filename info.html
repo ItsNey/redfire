@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Flow State</title>
     <style>
         body {
@@ -18,7 +18,7 @@
             text-align: center;
             padding: 20px;
             border-radius: 10px;
-            background-color: white; /* Back to white */
+            background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 80%;
             max-width: 400px;
@@ -53,27 +53,31 @@
         const energyModeSelect = document.getElementById('energyMode');
 
         function getTimePeriod(hour) {
-            if (hour >= 6 && hour < 12) return 'morning';
-            if (hour >= 12 && hour < 18) return 'afternoon';
-            return 'evening';
+            if (hour >= 5 && hour < 11) return 'morning';
+            if (hour >= 11 && hour < 15) return 'midday';
+            if (hour >= 15 && hour < 20) return 'afternoonEvening';
+            return 'night';
         }
 
         function getColor(energyMode, timePeriod) {
             const colorMap = {
                 low: {
-                    morning: '#E0FFFF',
-                    afternoon: '#FFFACD',
-                    evening: '#E6E6FA'
+                    morning: '#E0FFFF',          // Misty Blue
+                    midday: '#FFFACD',           // Light Sand
+                    afternoonEvening: '#E6E6FA', // Pale Lavender
+                    night: '#DCDCDC'             // Cool Grey
                 },
                 medium: {
-                    morning: '#98FB98',
-                    afternoon: '#FFDAB9',
-                    evening: '#FFC0CB'
+                    morning: '#98FB98',          // Mint Green
+                    midday: '#FFDAB9',           // Soft Peach
+                    afternoonEvening: '#FFC0CB', // Rose Pink
+                    night: '#D8BFD8'             // Soft Lilac
                 },
                 high: {
-                    morning: '#FF6347',
-                    afternoon: '#DAA520',
-                    evening: '#9370DB'
+                    morning: '#FF6347',          // Coral Red
+                    midday: '#DAA520',           // Warm Gold
+                    afternoonEvening: '#9370DB', // Royal Purple
+                    night: '#4B0082'             // Indigo Blue
                 }
             };
             return colorMap[energyMode][timePeriod] || 'white';
