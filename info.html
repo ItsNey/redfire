@@ -12,17 +12,18 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0; /* Light gray background for contrast */
+            background-color: #f0f0f0;
         }
         .widget {
             text-align: center;
             padding: 20px;
             border-radius: 10px;
+            background-color: white; /* Back to white */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%; /* Scalable width */
-            max-width: 400px; /* Maximum width */
-            min-width: 250px; /* Minimum width */
-            transition: background-color 0.3s ease; /* Smooth transition for background color */
+            width: 80%;
+            max-width: 400px;
+            min-width: 250px;
+            transition: background-color 0.3s ease;
         }
         select {
             padding: 10px;
@@ -60,22 +61,22 @@
         function getColor(energyMode, timePeriod) {
             const colorMap = {
                 low: {
-                    morning: '#E0FFFF',    // Misty Blue
-                    afternoon: '#FFFACD',  // Pale Yellow
-                    evening: '#E6E6FA'     // Lavender
+                    morning: '#E0FFFF',
+                    afternoon: '#FFFACD',
+                    evening: '#E6E6FA'
                 },
                 medium: {
-                    morning: '#98FB98',    // Mint Green
-                    afternoon: '#FFDAB9',  // Peach
-                    evening: '#FFC0CB'     // Dusty Rose
+                    morning: '#98FB98',
+                    afternoon: '#FFDAB9',
+                    evening: '#FFC0CB'
                 },
                 high: {
-                    morning: '#FF6347',    // Tomato
-                    afternoon: '#DAA520',  // Goldenrod
-                    evening: '#9370DB'     // Deep Violet
+                    morning: '#FF6347',
+                    afternoon: '#DAA520',
+                    evening: '#9370DB'
                 }
             };
-            return colorMap[energyMode][timePeriod] || 'transparent';
+            return colorMap[energyMode][timePeriod] || 'white';
         }
 
         function updateBackgroundColor() {
@@ -87,7 +88,7 @@
         }
 
         energyModeSelect.addEventListener('change', updateBackgroundColor);
-        updateBackgroundColor(); // Initial call
+        updateBackgroundColor();
     </script>
 </body>
 </html>
