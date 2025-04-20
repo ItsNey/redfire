@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow State</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .widget {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        label {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget" id="widget">
+        <h2>🌸 Flow State 🌸</h2>
+        <label for="energyMode">Select Focus Mode:</label>
+        <select id="energyMode">
+            <option value="low">🧘 Slow Focus</option>
+            <option value="medium">✨ Flow Focus</option>
+            <option value="high">⚡ Deep Focus</option>
+        </select>
+    </div>
+
+    <script>
+        const widget = document.getElementById('widget');
+        const energyModeSelect = document.getElementById('energyMode');
+
+        function getTimePeriod(hour) {
+            if (hour >= 6 && hour < 12) return 'morning';
+            if (hour >= 12 && hour < 18) return 'afternoon';
+            return 'evening';
+        }
+
+        function getColor(energyMode, timePeriod) {
+            const colorMap = {
+                low: {
+                    morning: '#E0FFFF',    // Misty Blue
+                    afternoon: '#FFFACD',  // Pale Yellow
+                    evening: '#E6E6FA'     // Lavender
+                },
+                medium: {
+                    morning: '#98FB98',    // Mint Green
+                    afternoon: '#FFDAB9',  // Peach
+                    evening: '#FFC0CB'     // Dusty Rose
+                },
+                high: {
+                    morning: '#FF6347',    // Tomato
+                    afternoon: '#DAA520',  // Goldenrod
+                    evening: '#9370DB'     // Deep Violet
+                }
+            };
+            return colorMap[energyMode][timePeriod] || '#ffffff';
+        }
+
+        function updateBackgroundColor() {
+            const hour = new Date().getHours();
+            const mode = energyModeSelect.value;
+            const timePeriod = getTimePeriod(hour);
+            const color = getColor(mode, timePeriod);
+            widget.style.backgroundColor = color;
+        }
+
+        energyModeSelect.addEventListener('change', updateBackgroundColor);
+        updateBackgroundColor(); // Initial call
+    </script>
+</body>
+</html>
